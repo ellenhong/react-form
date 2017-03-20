@@ -23,7 +23,7 @@ const Phone = (props) => {
         className={classnames(
           'error',
           {
-            'error-visible': !props.phone_valid && !props.phone_empty,
+            'error--visible': !props.phone_valid && !props.phone_empty,
           }
         )}
       > Phone must be of the form <b>(123)-456-7890</b>

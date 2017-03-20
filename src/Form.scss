@@ -55,7 +55,7 @@ textarea:focus, input:focus{
 	font-family: 'Lato';
 	font-size: 0.75em;
 	opacity: 0;
-	&.error-visible {
+	&.error--visible {
 		opacity: 1;
 	}
 }

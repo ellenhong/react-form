@@ -23,7 +23,7 @@ const Name = (props) => {
         className={classnames(
           'error',
           {
-            'error-visible': !props.first_valid && !props.first_empty,
+            'error--visible': !props.first_valid && !props.first_empty,
           }
         )}
       > (only) first letter must be capitalized
@@ -47,7 +47,7 @@ const Name = (props) => {
         className={classnames(
           'error',
           {
-            'error-visible': !props.last_valid && !props.last_empty,
+            'error--visible': !props.last_valid && !props.last_empty,
           }
         )}
       > (only) last letter must be capitalized

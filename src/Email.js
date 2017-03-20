@@ -23,7 +23,7 @@ const Email = (props) => {
         className={classnames(
           'error',
           {
-            'error-visible': !props.email_valid && !props.email_empty,
+            'error--visible': !props.email_valid && !props.email_empty,
           }
         )}
       > Email must be of the form <b>email@site.com</b>
