@@ -1,29 +1,73 @@
 @fontface {
-  font-family: 'Source Sans Pro';
-  src: url("https://fonts.googleapis.com/css?family=Lato:300,400"); }
+  font-family: 'Montserrat';
+  src: url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500"); }
+
+@fontface {
+  font-family: 'Lato';
+  src: url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:300,400,500"); }
 
 .form {
   margin-top: 50px;
-  font-family: 'Lato';
-  font-size: 0.9em; }
+  font-family: 'Montserrat';
+  font-size: 0.9em;
+  width: 300px;
+  margin: 50px auto; }
+
+.form__header {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+  margin: 10px 0 0 0; }
 
 .input {
   -webkit-appearance: none;
   border: none;
-  margin: 0 0px 15px 10px;
+  width: 100%;
+  margin: 5px 0;
   padding: 10px;
   font-family: 'Lato';
+  font-weight: 200;
+  font-size: 1.5em;
   background: white;
-  border: solid 1px #e4e4e4; }
+  border: none; }
 
 .input.input--empty {
-  background: white !important; }
+  border-bottom: solid 1px #e4e4e4 !important; }
 
 .input.input--valid {
-  background: #baefae; }
+  border-bottom: solid 2px #baefae; }
 
 .input.input--invalid {
-  background: #FF8A80; }
+  border-bottom: solid 2px #FF8A80; }
 
 textarea:focus, input:focus {
   outline: none; }
+
+.error {
+  font-family: 'Lato';
+  font-size: 0.75em;
+  opacity: 0; }
+
+.error.error-visible {
+  opacity: 1; }
+
+button {
+  font-family: 'Montserrat';
+  -webkit-appearance: none;
+  border: none;
+  margin-top: 15px;
+  padding: 15px 20px;
+  background: #03A9F4;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+  transition: 0.3s; }
+
+button:hover {
+  opacity: 1; }

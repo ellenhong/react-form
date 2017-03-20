@@ -1,84 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
-export default class Name extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    	firstEmpty: true,
-    	lastEmpty: true,
-      firstValid: false,
-      lastValid: false,
-    };
-
-    this._handleChangeFirst = this._handleChangeFirst.bind(this);
-		this._handleChangeLast = this._handleChangeLast.bind(this);
-  }
-  _handleChangeFirst(event){
-    this.validateFirst(event.target.value);
- 
-    if(this.props.onChange) {
-      this.props.onChange(event);
-    }
-  }
-  validateFirst(value) {
-  	var re = /^[A-Z][a-z]{1,19}$/;
-    this.setState({
-    	firstEmpty: (value.length === 0),
-      firstValid: re.test(value),
-    })
-  }
-
-  _handleChangeLast(event){
-    this.validateLast(event.target.value);
- 
-    if(this.props.onChange) {
-      this.props.onChange(event);
-    }
-  }
-  validateLast(value) {
-  	var isValid = true;
-  	for (var i = 0; i < value.length - 1; i++) {
-  		isValid = isValid && (value[i] === value[i].toLowerCase());
-  	}
-  	isValid = isValid && (value[value.length-1] === value[value.length-1].toUpperCase());
-  	this.setState({
-  		lastEmpty: (value.length === 0),
-  		lastValid: isValid,
-  	})
-  }
-
-  render() {
-    return (
-      <div>
-      	First name:
-        <input
-          className={classnames(
-            'input',
-            {
-            	'input--empty': this.state.firstEmpty,
-              'input--valid': this.state.firstValid,
-              'input--invalid': !this.state.firstValid
-            }
-          )}
-          type="text"
-          onChange={this._handleChangeFirst} 
-        /><br/>
-        Last name:
-        <input
-          className={classnames(
-            'input',
-            {
-            	'input--empty': this.state.lastEmpty,
-              'input--valid': this.state.lastValid,
-              'input--invalid': !this.state.lastValid
-            }
-          )}
-          type="text"
-          onChange={this._handleChangeLast} 
-        />
+const Name = (props) => {
+	return (
+		<div>
+			<div className="form__header">
+				First name
+			</div>
+			<input
+				className={classnames(
+          'input',
+          {
+          	'input--empty': props.first_empty,
+          	'input--valid': props.first_valid,
+          	'input--invalid': !props.first_valid,
+          }
+        )}
+				name="first"
+        onChange={props._handleChange} 
+      />
+      <div 
+        className={classnames(
+          'error',
+          {
+            'error-visible': !props.first_valid && !props.first_empty,
+          }
+        )}
+      > (only) first letter must be capitalized
       </div>
-    );
-  }
+      <div className="form__header">
+				Last name
+			</div>
+      <input
+      	className={classnames(
+          'input',
+          {
+          	'input--empty': props.last_empty,
+          	'input--valid': props.last_valid,
+          	'input--invalid': !props.last_valid,
+          }
+        )}
+      	name="last"
+        onChange={props._handleChange} 
+      /><br/>
+      <div 
+        className={classnames(
+          'error',
+          {
+            'error-visible': !props.last_valid && !props.last_empty,
+          }
+        )}
+      > (only) last letter must be capitalized
+      </div>
+    </div>
+	)
 }
+
+export default Name;
